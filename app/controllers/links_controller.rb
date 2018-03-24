@@ -4,13 +4,24 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    @link = Link.new
+    @links = Link.paginate(:page => params[:page], :per_page => 4)
   end
 
   # GET /links/1
   # GET /links/1.json
   def show
+    if params[:slug]
+      @link = Link.find_by(slug: params[:slug])
+      if redirect_to @link.given_url
+        @link.clicks += 1
+        @link.save
+      end
+    else
+      @link = Link.find(params[:id])
+    end
   end
+
 
   # GET /links/new
   def new
@@ -28,7 +39,8 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Link was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @link }
       else
         format.html { render :new }
@@ -42,7 +54,7 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
+        format.html { redirect_to link_path(@link), notice: 'Link was successfully updated.' }
         format.json { render :show, status: :ok, location: @link }
       else
         format.html { render :edit }

@@ -5,9 +5,9 @@ class Link < ActiveRecord::Base
     "#{id}-#{slug}"
   end
 
-   def display_slug
+  def display_slug
     ENV['BASE_URL'] + self.slug
-   end
+  end
 
   private
 

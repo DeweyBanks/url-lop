@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :links
   root 'welcome#index'
+  resources :links, params: :slug
+
 end

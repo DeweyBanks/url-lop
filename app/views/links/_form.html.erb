@@ -11,11 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :get_your_link %><br>
-    <%= f.text_field :given_url, :placeholder => "Paste a link to shorten" %>
+  <div class="form-group">
+    <%= f.text_field :given_url, :placeholder => "Paste a link to shorten", :class => "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Get Lop'd", :class => "btn btn-default" %>
   </div>
 <% end %>

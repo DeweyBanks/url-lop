@@ -1,0 +1,14 @@
+<div id="main-container" class="container-fluid">
+  <div class="row-fluid">
+    <div class="row greeting">
+      <div class="col-md-8 col-md-offset-2 links-table ">
+        <p id="notice"><%= notice %></p>
+
+        <h1>The Top 100</h1>
+          <ol>
+            <%= render :partial => 'top_links', :locals => {:links => @links } %>
+          </ol>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class LinksController < ApplicationController
   before_action :set_link, only: [:edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
@@ -10,7 +11,7 @@ class LinksController < ApplicationController
   end
 
   def top
-    @links = Link.order(:clicks)
+    @links = Link.order(clicks: :desc).limit(100)
   end
 
   # GET /links/1

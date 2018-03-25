@@ -4,7 +4,7 @@
 <div id="main-container" class="container-fluid">
   <div class="row-fluid">
     <div class="row greeting">
-      <div class="col-lg-2">
+      <div class="col-md-8 col-md-offset-2">
         <p id="notice"><%= notice %></p>
 
         <h1>The Links</h1>
@@ -34,6 +34,13 @@
             <% end %>
           </tbody>
         </table>
+          <nav aria-label="Page navigation">
+            <% if @links.any? %>
+              <%= will_paginate @links, renderer: BootstrapPagination::Rails  %>
+            <% else %>
+              <p class="empty">No links yet.</p>
+            <% end %>
+          </nav>
       </div>
     </div>
   </div>

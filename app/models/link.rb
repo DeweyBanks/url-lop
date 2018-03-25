@@ -2,7 +2,7 @@ class Link < ActiveRecord::Base
   after_create :set_slug
 
 
-  def display_slug
+  def full_slug_url
     ENV["BASE_URL"] + self.slug
   end
 

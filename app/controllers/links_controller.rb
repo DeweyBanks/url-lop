@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   # GET /links.json
   def index
     @link = Link.new
-    @links = Link.all.order(sort_column + " " + sort_direction).page params[:page]
+    @links = Link.all.order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /links/1

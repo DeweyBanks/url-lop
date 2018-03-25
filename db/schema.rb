@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324202917) do
+ActiveRecord::Schema.define(version: 20180325192702) do
 
   create_table "links", force: :cascade do |t|
-    t.string   "given_url",  limit: 255
-    t.string   "slug",       limit: 255
-    t.integer  "clicks",     limit: 4,   default: 0
-    t.string   "title",      limit: 255
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "given_url",     limit: 255
+    t.string   "slug",          limit: 255
+    t.integer  "clicks",        limit: 4,   default: 0
+    t.string   "title",         limit: 255
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.string   "sanitized_url", limit: 255
   end
 
 end

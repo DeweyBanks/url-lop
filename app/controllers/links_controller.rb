@@ -9,12 +9,16 @@ class LinksController < ApplicationController
     @links = Link.all.order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
   end
 
+  def top
+    @links = Link.order(:clicks)
+  end
+
   # GET /links/1
   # GET /links/1.json
   def show
     if params[:slug]
       @link = Link.find_by(slug: params[:slug])
-      if redirect_to @link.given_url
+      if redirect_to @link.sanitized_url
         @link.clicks += 1
         @link.save
       end
@@ -91,6 +95,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:given_url, :slug, :clicks, :title)
+      params.require(:link).permit(:given_url, :slug, :clicks, :title, :sanitized_url)
     end
 end

@@ -4,12 +4,12 @@
 <div id="main-container" class="container-fluid">
   <div class="row-fluid">
     <div class="row greeting">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2 links-table ">
         <p id="notice"><%= notice %></p>
 
         <h1>The Links</h1>
 
-        <table class="table table-striped">
+        <table class="table">
           <thead>
             <tr>
               <th>Given url</th>
@@ -23,7 +23,7 @@
           <tbody>
             <% @links.each do |link| %>
               <tr>
-                <td><%= link.given_url %></td>
+                <td><%= link_to link.given_url, link.sanitized_url %></td>
                 <td><%= link.slug %></td>
                 <td><%= link.clicks %></td>
                 <td><%= link.title %></td>

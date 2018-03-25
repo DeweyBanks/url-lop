@@ -10,7 +10,7 @@ class Link < ActiveRecord::Base
   private
 
     def set_slug
-      self.slug = "lop" + self.id.to_s(36) unless self.slug.present?
+      self.slug = self.id.to_s(36) unless self.slug.present?
       self.save
     end
 

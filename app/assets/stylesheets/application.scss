@@ -21,6 +21,16 @@ body {
   margin-top: 40px;
 }
 
+ #edit-btns input a {
+  width: 30%;
+  border-color: white;
+  border-radius: 20%;
+}
+
+#edit-btns a {
+  margin-left: 10px;
+}
+
 .greeting {
   margin-top: 200px;
 }

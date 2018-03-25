@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: [:edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
   # GET /links
@@ -86,7 +86,7 @@ class LinksController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_link
-      @link = Link.find_by(slug: params[:slug])
+      @link = Link.find_by(id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

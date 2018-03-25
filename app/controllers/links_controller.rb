@@ -1,11 +1,12 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /links
   # GET /links.json
   def index
     @link = Link.new
-    @links = Link.paginate(:page => params[:page], :per_page => 4)
+    @links = Link.all.order(sort_column + " " + sort_direction).page params[:page]
   end
 
   # GET /links/1
@@ -74,6 +75,15 @@ class LinksController < ApplicationController
   end
 
   private
+
+    def sort_column
+      Link.column_names.include?(params[:sort]) ? params[:sort] : "slug, clicks, title"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_link
       @link = Link.find_by(slug: params[:slug])

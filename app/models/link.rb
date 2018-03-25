@@ -3,8 +3,7 @@ class Link < ActiveRecord::Base
 
 
   def display_slug
-    "http://localhost:3000/" + self.slug
-    # "https://url-lop.herokuapp.com/" + self.slug
+    ENV["BASE_URL"] + self.slug
   end
 
   private

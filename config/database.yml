@@ -47,8 +47,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: url_lop_production
-  username: url_lop
-  password: <%= ENV['URL_LOP_DATABASE_PASSWORD'] %>

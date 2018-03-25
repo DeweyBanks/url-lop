@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem 'will_paginate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -37,6 +38,7 @@ gem 'will_paginate'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'rspec-rails', '~> 3.7'
 end

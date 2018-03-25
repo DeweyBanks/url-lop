@@ -1,4 +1,4 @@
-<%= form_for(@link, remote: true) do |f| %>
+<%= form_for(@link, remote: true, :id => "link_form") do |f| %>
   <% if @link.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.text_field :given_url, :placeholder => "Paste a link to shorten", :class => "form-control" %>
+    <%= f.text_field :given_url, :placeholder => "Paste a link to shorten", :id => "link_content", :class => "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit "Get Lop'd", :class => "btn btn-default" %>

@@ -197,7 +197,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2 (~> 0.3.18)
+  mysql2 (>= 0.3.13, < 0.5)
   pry
   rails (~> 4.2, >= 4.2.10)
   rails_12factor
